@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Airflow logs and output
+logs/
+*.log
+
+# Airflow SQLite database (if using default DB in dev)
+airflow.db
+airflow.db-journal
+
+# Airflow config (optional)
+airflow.cfg
+webserver_config.py
+
+# Dags compiled by Airflow (esp. for zip DAGs)
+dags/__pycache__/
+dags/*.pyc
+
+# Environment variables or secrets
+.env
+.env.*
+
+# Docker files
+*.pid
+*.pid.lock
+docker-compose.override.yml
+
+# Python virtual environment
+.venv/
+venv/
+ENV/
+
+# Airflow local files
+unittests.cfg
+tests/__pycache__/
+tests/*.pyc
+
+# Jupyter notebooks
+*.ipynb
+
+# Airflow volume mounts (especially in Docker)
+tmp/
+data/
+plugins/__pycache__/
+plugins/*.pyc
+
+# VS Code config (if you use it)
+.vscode/
+
+# Airflow example DAGs (optional – disable via config is better)
+**/example_dags/
