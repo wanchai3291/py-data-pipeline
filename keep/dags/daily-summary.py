@@ -21,12 +21,11 @@ parent_path = full_path.split(BASE_DIR)[1]
 main_dir = str(Path(parent_path).parents[0])
 project_name = main_dir.lstrip("/")
 
-PROJECT_NAME = project_name
+PROJECT_NAME = project_name + "_daily-summary"
 DAG_ID = PROJECT_NAME
 START_DATE = datetime(2022, 1, 1)
-SCHEDULE_INTERVAL = "*/10 * * * *"
-# DAGRUN_TIMEOUT = timedelta(hours=1, minutes=30)
-# EXECUTION_TIMEOUT = timedelta(hours=1)
+SCHEDULE_INTERVAL = "0 3 * * *"
+DAGRUN_TIMEOUT = timedelta(days=1)
 HOME_DIR = f"{BASE_DIR}{main_dir}"
 WORKING_DIR = f"{HOME_DIR}"
 
@@ -41,7 +40,6 @@ KERNEL_NAME = f"python-3-12-{PROJECT_TAG}"
 
 sys.path.append(WORKING_DIR)
 sys.path.append(f"{WORKING_DIR}/dags")
-sys.path.append(f"{WORKING_DIR}/src")
 os.environ["HOME"] = HOME_DIR
 
 os.environ["JUPYTER_CONFIG_DIR"] = "/opt/bitnami/jupyter"
@@ -141,6 +139,7 @@ def build_execution(
             "config": config,
             "workingDir": WORKING_DIR,
             "isAirflow": True,
+            "isExecuteDailySummaryProcess": True,
         },
         logger=logger,
         base_dir=BASE_DIR,
@@ -159,7 +158,7 @@ with DAG(
         "retries": 0,
         "on_success_callback": on_success,
     },
-    description=PROJECT_DESC,
+    description=f"{PROJECT_DESC} - Daily Summary",
     schedule_interval=SCHEDULE_INTERVAL,
     start_date=START_DATE,
     # dagrun_timeout=DAGRUN_TIMEOUT,
@@ -174,7 +173,7 @@ with DAG(
 
     build_execution_group(
         task_id="execute",
-        config_file_name="config",
+        config_file_name="config-daily-summary",
         output_prefix="output",
         output_suffix="{{ts}}",
     )
