@@ -1,0 +1,31 @@
+{
+  "dependencies": [
+    "datadriven-core@git+https://ro:rW-cvXTECzHxFYZLKvxM@git.matador.ais.co.th/cronus/data-driven/data-driven-lib.git@0.5.13"
+  ],
+  "engine": {
+    "storage": "system",
+    "tmpPath": "/home/jovyan/tmp/",
+    "isDedicatedSpark": false,
+    "sparkExecutorCore": 1,
+    "sparkExecutorMemory": "4g",
+    "sparkEndpoint": "",
+    "isDynamicAllocation": true,
+    "sparkExecutorMinInstances": 1,
+    "sparkExecutorMaxInstances": 3,
+    "sparkOptions": {
+      "spark.cassandra.connection.host": "cassandra",
+      "spark.cassandra.connection.port": "9042",
+      "spark.cassandra.connection.localDC": "datacenter1",
+      "spark.cassandra.auth.username": "cassandra",
+      "spark.cassandra.auth.password": "cassandra"
+    }
+  },
+  "app": {
+    "name": "app_%s%s",
+    "suffix": "",
+    "execution": {
+      "inputPath": "./app.ipynb",
+      "outputPath": "output_%s%s.ipynb"
+    }
+  }
+}
