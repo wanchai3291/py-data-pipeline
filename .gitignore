@@ -46,7 +46,7 @@ data/
 **/example_dags/
 
 # --- Jupyter Notebooks ---
-*.ipynb
+# *.ipynb
 
 # --- VS Code ---
 .vscode/
