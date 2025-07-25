@@ -1,7 +1,5 @@
 {
-  "dependencies": [
-    "datadriven-core@git+https://ro:rW-cvXTECzHxFYZLKvxM@git.matador.ais.co.th/cronus/data-driven/data-driven-lib.git@0.5.13"
-  ],
+  "dependencies": [],
   "engine": {
     "storage": "system",
     "tmpPath": "/home/jovyan/tmp/",
@@ -24,7 +22,7 @@
     "name": "app_%s%s",
     "suffix": "",
     "execution": {
-      "inputPath": "./app.ipynb",
+      "inputPath": "app.ipynb",
       "outputPath": "output_%s%s.ipynb"
     }
   }

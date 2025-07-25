@@ -20,7 +20,7 @@ KERNEL_NAME = f"python-3-12-{PROJECT_TAG}"
 # Paths
 WORKING_DIR = os.path.join(AIRFLOW_HOME, "dags")
 CONFIG_DIR = os.path.join(AIRFLOW_HOME, "config", ENV)
-NOTEBOOK_DIR = os.path.join(WORKING_DIR, "notebooks")
+NOTEBOOK_DIR = os.path.join(AIRFLOW_HOME, "notebooks")
 
 # Append paths to sys.path
 sys.path.append(WORKING_DIR)
