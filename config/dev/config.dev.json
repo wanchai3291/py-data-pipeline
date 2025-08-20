@@ -1,5 +1,7 @@
 {
-  "dependencies": [],
+  "dependencies": [
+    "datadriven-core@git+https://ro:rW-cvXTECzHxFYZLKvxM@git.matador.ais.co.th/cronus/data-driven/data-driven-lib.git@0.5.13"
+  ],
   "engine": {
     "storage": "system",
     "tmpPath": "/home/jovyan/tmp/",
